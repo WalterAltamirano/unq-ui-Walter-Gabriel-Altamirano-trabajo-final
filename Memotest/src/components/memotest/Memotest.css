@@ -1,0 +1,92 @@
+/* Contenedor principal */
+.contenedor-memotest {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Tablero de juego */
+  .tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  /* Cartas */
+  .carta {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  
+  .carta.volteada .frente {
+    transform: rotateY(0);
+  }
+  
+  .carta.volteada .dorso {
+    transform: rotateY(180deg);
+  }
+  
+  .frente,
+  .dorso {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background: #f7f7f7;
+  }
+  
+  .dorso {
+    transform: rotateY(0);
+    background: #1e90ff;
+    color: white;
+  }
+  
+  .frente {
+    transform: rotateY(180deg);
+  }
+  
+  /* Mensaje final */
+  .mensaje-final {
+    margin-top: 20px;
+  }
+  
+  /* Estilos responsive */
+  @media (max-width: 600px) {
+    .tablero {
+      grid-template-columns: repeat(4, 70px);
+      grid-gap: 8px;
+    }
+  
+    .carta {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .frente,
+    .dorso {
+      font-size: 1.5em;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .tablero {
+      grid-template-columns: repeat(2, 70px);
+      grid-gap: 8px;
+    }
+  }
