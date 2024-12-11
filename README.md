@@ -12,11 +12,11 @@ Para descargar el proyecto, se debe ejecutar el comando "git clone <URL-del-proy
 
   ![GitClone](GitClone.png)
 
-Una vez hecho lo anterior, instalar los archivos necesarios para poder ejecutar el juego:
+Una vez hecho lo anterior, instalar los archivos necesarios para poder ejecutar el juego. *Comando a ejecutar " npm create vite@latest my-vue-app -- --template react "*:
 
   ![GitCreateApp](GitCreateApp.png)
 
-Por ultimo, ubicarse en el directorio creado para instalar una dependencia necesaria para futuras versiones, Ejecutar "npm install react-router-dom" y luego, ejecutar "npm run dev" inicializar el juego:
+Por ultimo, ubicarse en el directorio creado para instalar una dependencia necesaria para futuras versiones, Ejecutar *"npm install react-router-dom"* y luego, ejecutar *"npm run dev"* inicializar el juego:
 
   ![GitInstalacionApp](GitInstalacionApp.png)
 
