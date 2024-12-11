@@ -22,6 +22,8 @@ Por ultimo, ubicarse en el directorio creado para inicializar el juego:
   
   ![GitIniciarJuego](GitIniciarJuego.png)
 
+Abrir el navegador y escribir en la URL el siguiente link: http://localhost:5173/
+
 # Juego
 
 ![Inicio](Inicio.png)
