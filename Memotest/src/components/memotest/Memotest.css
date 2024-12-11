@@ -1,53 +1,96 @@
-/* Contenedor principal */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  place-self: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb);
-  background-size: 300% 300%;
-  animation: colorShift 8s ease infinite;
-  z-index: -1;
-}
-.contenedor-memotest {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f0f8ff;
-  padding: 20px;
-  box-sizing: border-box;
-}
-/* Titulo del juego*/
-.title-memotest {
-  font-size: 3rem;
-  color: #1e90ff;
-  text-align: center;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  font-family: 'Arial Black', sans-serif;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
+  /* Contenedor principal */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-self: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(120deg, 
+    #ff9a9e, 
+    #fad0c4, 
+    #fbc2eb, 
+    #a1c4fd, 
+    #c2e9fb, 
+    #e0c3fc, 
+    #ff9a9e);
+    background-size: 400% 400%;
+    animation: colorShift 10s ease infinite;
+    z-index: -1;
+  }
+  
+  .contenedor-memotest {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: inherit;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  
+  /* Titulo del juego*/
+  .title-memotest {
+    font-size: 3rem;
+    color: #1e90ff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
   /* Tablero de juego */
   .tablero {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     grid-gap: 10px;
     justify-content: center;
   }
+
+  /* Tablero 4x4 */
+  .tablero.size-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .tablero.size-4 .carta {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Tablero 6x6 */
+  .tablero.size-6 {
+  grid-template-columns: repeat(6, 1fr); 
+  }
+  .tablero.size-6 .carta {
+    width: 70px; 
+    height: 70px;
+  }
+
+  /* Tablero 8x8 */
+  .tablero.size-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .tablero.size-8 .carta {
+    width: 60px; 
+    height: 60px;
+    gap: 5px; 
+  }
+
   .containerTablero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   /* Cartas */
   .carta {
     width: 100px;
@@ -94,16 +137,77 @@ body {
     margin-top: 20px;
     text-align: center;
   }
+
   /* Opciones */
   .contenedor-opciones {
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    text-align: center;
-    font-size: 1.2rem;
+    text-align: center;  
+  }
+  .contenedor-tamanios, .contenedor-opciones p {
+    background: inherit;  /* Heredar el background del body */
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .contenedor-tamanios {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;  
   }
   
+  .contenedor-tamanios label {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .contenedor-tamanios select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    width: 100%; 
+  }
+  
+  .contenedor-tamanios select:focus {
+    outline: none;
+    border-color: #1e90ff;
+    box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+  }
+  .contenedor-tamanios select option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+   /* Resaltar la opción seleccionada */
+   .contenedor-tamanios select option:checked {
+    background-color: #1e90ff;
+    color: white;
+  } 
+  .contenedor-tamanios button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .contenedor-tamanios button:hover {
+    background-color: #4682b4;
+  }
+   
   /* Estilos responsive */
   @media (max-width: 600px) {
     .tablero {
@@ -128,16 +232,37 @@ body {
       grid-gap: 8px;
     }
   }
-
-/* Animación de colores */
-@keyframes colorShift {
-  0% {
-    background-position: 0% 50%;
+  @media (max-width: 600px) {
+    .tablero {
+      grid-template-columns: repeat(6, 50px);
+    }
   }
-  50% {
-    background-position: 100% 50%;
+  /* tablero 6x6 */
+  @media (max-width: 600px) {
+    .tablero.size-6 .carta {
+      width: 50px;  
+      height: 50px;
+    }
   }
-  100% {
-    background-position: 0% 50%;
+  /* tablero 8x8 */
+  @media (max-width: 600px) {
+    .tablero.size-8 .carta {
+      width: 40px;
+      height: 40px;
+      gap: 4px;
   }
 }
+  
+
+  /* Animación de colores */
+  @keyframes colorShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

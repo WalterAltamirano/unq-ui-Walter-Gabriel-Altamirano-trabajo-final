@@ -1,34 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./Memotest.css"; // Archivo de estilos
 import ButtonOption from "../atoms/buttonOption/ButtonOption";
-import arg from "../../../public/paisesIcons/arg.png"
-import bra from "../../../public/paisesIcons/bra.png"
-import col from "../../../public/paisesIcons/col.png"
-import corea from "../../../public/paisesIcons/corea.png"
-import guat from "../../../public/paisesIcons/guat.png"
-import jap from "../../../public/paisesIcons/jap.png"
-import uru from "../../../public/paisesIcons/uru.png"
-import venz from "../../../public/paisesIcons/venz.png"
 
 const Memotest = () => {
   const [tablero, setTablero] = useState([]);
   const [volteadas, setVolteadas] = useState([]);
   const [emparejadas, setEmparejadas] = useState([]);
   const [juegoTerminado, setJuegoTerminado] = useState(false);
+  const [tableroSize, setTableroSize] = useState(4);
   const [eligio, setEligio] = useState(false);
 
 
   const generarTablero = (opcion) => {
     const opciones = {
-      Animales: ["🐶", "🐱", "🐭", "🐰", "🦊", "🐻", "🐼", "🐨"],
-      Paises: [arg, bra, col, corea, guat, jap, uru, venz],
-      Objetos: ["🚗", "🚲", "🛶", "🛩", "🚀", "🚢", "🏍", "🚒"],
+      Animales: [
+        "🐶", "🐱", "🐭", "🐰", "🦊", "🐻", "🐼", "🐨", "🦁", "🐸", "🐷", "🐮", "🐔", "🐵", "🦓", "🦒",
+        "🐘", "🦏", "🐊", "🐢", "🦎", "🐍", "🦂", "🕷️", "🐌", "🐞", "🦋", "🐝", "🐜", "🐚", "🐳", "🐬",
+      ],
+      Paises: [
+        "🇦🇷", "🇧🇷", "🇨🇱", "🇺🇾", "🇲🇽", "🇨🇴", "🇪🇸", "🇫🇷", "🇮🇹", "🇺🇸", "🇬🇧", "🇩🇪", "🇯🇵", "🇨🇳", "🇮🇳", "🇦🇺",
+        "🇨🇦", "🇷🇺", "🇿🇦", "🇳🇿", "🇰🇷", "🇸🇪", "🇳🇴", "🇩🇰", "🇳🇱", "🇧🇪", "🇨🇭", "🇦🇹", "🇧🇴", "🇵🇪", "🇻🇪", "🇬🇷",
+      ],
+      Objetos: [
+        "📱", "💻", "🎮", "🖨️", "📷", "🎧", "🔑", "💡", "📚", "🚪", "🖊️", "🖌️", "📝", "📒", "✂️", "📎",
+        "📐", "📏", "🔬", "🔭", "📡", "💾", "📀", "📼", "🎥", "📽️", "📠", "🕹️", "🔋", "🔌", "🛠️", "🔧",
+      ],
     };
-
-    const elementos = opciones[opcion];
+  
+    const elementos = opciones[opcion].slice(0, (tableroSize * tableroSize) / 2);
     const elementosDuplicados = [...elementos, ...elementos];
-    setTablero(elementosDuplicados.sort(() => Math.random() - 0.5));
+    const tableroAleatorio = elementosDuplicados.sort(() => Math.random() - 0.5)
+    setTablero(tableroAleatorio);
     setEligio(true);
+  };
+  const cambiarTamañoTablero = (e) => {
+    const newSize = parseInt(e.target.value);
+    setTableroSize(newSize);
+    setEligio(false); // Reiniciar tablero si se cambia tamaño
   };
   const manejarVoltear = (indice) => {
     if (
@@ -75,10 +83,22 @@ const Memotest = () => {
           <ButtonOption handleCreateBoard={generarTablero} name="Animales" />
           <ButtonOption handleCreateBoard={generarTablero} name="Paises" />
           <ButtonOption handleCreateBoard={generarTablero} name="Objetos" />
+          <div className="contenedor-tamanios">
+            <label htmlFor="tamanio-tablero">Elegi el Tamaño del tablero:</label>
+              <select
+                id="tamanio-tablero"
+                value={tableroSize}
+                onChange={cambiarTamañoTablero}
+                >
+                <option value={4}>4x4</option>
+                <option value={6}>6x6</option> 
+                <option value={8}>8x8</option>
+              </select>
+          </div>
         </div>
       ) : (
         <div className="containerTablero">
-          <div className="tablero">
+          <div className={`tablero size-${tableroSize}`}>
             {tablero.map((item, indice) => (
               <div
                 key={indice}
