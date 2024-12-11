@@ -3,7 +3,9 @@ Trabajo Integrador Final -- Construcción de Interfaces de Usuario
 
 # MEMOTEST
 Requisitos previos para descargar el proyecto:
+ 
  *Tener instalado Node.js --> https://nodejs.org/en/
+   
    *Descargar la version LTS
 
 # Descarga del proyecto y su Instalacion :
