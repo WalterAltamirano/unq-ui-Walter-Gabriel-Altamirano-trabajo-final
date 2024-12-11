@@ -19,7 +19,11 @@ Para instalarlo, utilizar la consola de su sistema operativo, ubiquese en el dir
     Agregar Imagenes y Pasos
 
 # Juego
-Insertar Imagenes del juego
+
+![Inicio](Inicio.png)
+![GameOver](GameOver.png)
+![Game](Game.png)
+
 # Reglas del Juego
 Las reglas son sencillas: consiste en una grilla o cuadrícula de tamaño variable, en la cual se esconden pares de objetos: pueden ser animales, capitales y países, números y sus dobles, etc. Los jugadores deben ir descubriendo las celdas de a una e ir recordando dónde está cada pieza del par, para así reunirlos y sumar puntos. El objetivo es lograr reunir la mayor cantidad de pares. El jugador que reúne la mayor cantidad de pares es el ganador. Concluye cuando todos los pares de la grilla son formados.
 
