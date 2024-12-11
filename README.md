@@ -16,9 +16,11 @@ Una vez hecho lo anterior, instalar los archivos necesarios para poder ejecutar 
 
   ![GitCreateApp](GitCreateApp.png)
 
-Por ultimo, ubicarse en el directorio creado para inicializar el juego:
+Por ultimo, ubicarse en el directorio creado para instalar una dependencia necesaria para futuras versiones, Ejecutar "npm install react-router-dom" y luego, ejecutar "npm run dev" inicializar el juego:
 
   ![GitInstalacionApp](GitInstalacionApp.png)
+
+  ![GitInstalacionDependencia](GitInstalacionDependencia.png)
   
   ![GitIniciarJuego](GitIniciarJuego.png)
 
