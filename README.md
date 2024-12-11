@@ -8,8 +8,8 @@ Requisitos previos para descargar el proyecto:
    *Descargar la version LTS*
 
 # Descarga del proyecto y su Instalacion :
-Para descargar el proyecto, se debe ejecutar el comando "git clone <URL-del-proyecto>" en la consola de su sistema operativo ( cmd en Windows *consola de linux* en linux), en el directorio que desea guardarlo.
-  
+Para descargar el proyecto, se debe ejecutar el comando "git clone <URL-del-proyecto>" en la consola de su sistema operativo ("cmd" en Windows,"prompt" en linux), en el directorio que desea guardarlo.
+  ![GitClone](GitClone.png)
   *Ejemplo:
     Agregar Imagenes y Pasos
 
