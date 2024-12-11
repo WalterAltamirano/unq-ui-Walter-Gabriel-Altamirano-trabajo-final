@@ -9,14 +9,18 @@ Requisitos previos para descargar el proyecto:
 
 # Descarga del proyecto y su Instalacion :
 Para descargar el proyecto, se debe ejecutar el comando "git clone <URL-del-proyecto>" en la consola de su sistema operativo ("cmd" en Windows,"prompt" en linux), en el directorio que desea guardarlo.
+
   ![GitClone](GitClone.png)
-  *Ejemplo:
-    Agregar Imagenes y Pasos
 
-Para instalarlo, utilizar la consola de su sistema operativo, ubiquese en el directorio que desea guardarlo
+Una vez hecho lo anterior, instalar los archivos necesarios para poder ejecutar el juego:
 
-  *Ejemplo:
-    Agregar Imagenes y Pasos
+  ![GitCreateApp](GitCreateApp.png)
+
+Por ultimo, ubicarse en el directorio creado para inicializar el juego:
+
+  ![GitInstalacionApp](GitInstalacionApp.png)
+  
+  ![GitIniciarJuego](GitIniciarJuego.png)
 
 # Juego
 
