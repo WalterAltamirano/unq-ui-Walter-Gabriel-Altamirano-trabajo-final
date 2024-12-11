@@ -1,25 +1,53 @@
 /* Contenedor principal */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-self: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb);
+  background-size: 300% 300%;
+  animation: colorShift 8s ease infinite;
+  z-index: -1;
+}
 .contenedor-memotest {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f8ff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+/* Titulo del juego*/
+.title-memotest {
+  font-size: 3rem;
+  color: #1e90ff;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
   /* Tablero de juego */
   .tablero {
     display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-gap: 10px;
     justify-content: center;
-    margin: 20px 0;
   }
-  
+  .containerTablero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   /* Cartas */
   .carta {
     width: 100px;
@@ -64,6 +92,16 @@
   /* Mensaje final */
   .mensaje-final {
     margin-top: 20px;
+    text-align: center;
+  }
+  /* Opciones */
+  .contenedor-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
   }
   
   /* Estilos responsive */
@@ -90,3 +128,16 @@
       grid-gap: 8px;
     }
   }
+
+/* Animación de colores */
+@keyframes colorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

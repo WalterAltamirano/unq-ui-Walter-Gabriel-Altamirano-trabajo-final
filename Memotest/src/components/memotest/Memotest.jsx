@@ -66,45 +66,44 @@ const Memotest = () => {
   };
 
   return (
-    <>
-    {!eligio ? (
+    <div className="background-dinamico">
     <div className="contenedor-memotest">
-      <h1>Memotest</h1>
-      <div className="contenedor-opciones">
-        Elije con que quieres jugar: 
-        <ButtonOption handleCreateBoard={generarTablero} name="Animales" />
-        <ButtonOption handleCreateBoard={generarTablero} name="Paises" />
-        <ButtonOption handleCreateBoard={generarTablero} name="Objetos" />
-      </div>
-    </div>
-        ) : (
-      <div>
-        <div className="tablero">
+      <h1 className="title-memotest">Memotest</h1>
+      {!eligio ? (
+        <div className="contenedor-opciones">
+          <p>Elije con qué quieres jugar:</p>
+          <ButtonOption handleCreateBoard={generarTablero} name="Animales" />
+          <ButtonOption handleCreateBoard={generarTablero} name="Paises" />
+          <ButtonOption handleCreateBoard={generarTablero} name="Objetos" />
+        </div>
+      ) : (
+        <div className="containerTablero">
+          <div className="tablero">
             {tablero.map((item, indice) => (
-                <div
-                    key={indice}
-                    className={`carta ${
-                    volteadas.includes(indice) || emparejadas.includes(indice)
-                        ? "volteada"
-                        : ""
-                    }`}
-                    onClick={() => manejarVoltear(indice)}
-                    >
-                    <div className="frente">{item}</div>
-                    <div className="dorso">?</div>
-                </div>
+              <div
+                key={indice}
+                className={`carta ${
+                  volteadas.includes(indice) || emparejadas.includes(indice)
+                    ? "volteada"
+                    : ""
+                }`}
+                onClick={() => manejarVoltear(indice)}
+              >
+                <div className="frente">{item}</div>
+                <div className="dorso">?</div>
+              </div>
             ))}
-      </div>
-        {juegoTerminado && (
+          </div>
+          {juegoTerminado && (
             <div className="mensaje-final">
-            <h2>¡Juego terminado!</h2>
-            <button onClick={reiniciarJuego}>Reiniciar juego</button>
+              <h2>¡Juego terminado!</h2>
+              <button onClick={reiniciarJuego}>Reiniciar juego</button>
             </div>
-        )}
+          )}
+        </div>
+      )}
+      </div>
     </div>
-    )}
-    </>
   );
-};
-
+}
 export default Memotest;
